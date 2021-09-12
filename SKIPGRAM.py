@@ -84,7 +84,7 @@ def generate_batch(batch_size, num_skips, skip_window):
     global data_index
     assert batch_size % num_skips == 0
     assert num_skips <= 2 * skip_window
-    batch = np.ndarray(shape=(batch_size), dtype=np.int32)
+    batch = np.ndarray(shape=batch_size, dtype=np.int32)
     labels = np.ndarray(shape=(batch_size, 1), dtype=np.int32)
     span = 2 * skip_window + 1  # [ skip_window target skip_window ]
     buffer = collections.deque(maxlen=span)
@@ -238,9 +238,9 @@ try:
     from sklearn.manifold import TSNE
     import matplotlib.pyplot as plt
 
-    tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
+    skipgram_tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
     plot_only = 500
-    low_dim_embs = tsne.fit_transform(final_embeddings[:plot_only, :])
+    low_dim_embs = tsne_tsne.fit_transform(final_embeddings[:plot_only, :])
     labels = [reverse_dictionary[i] for i in xrange(plot_only)]
     plot_with_labels(low_dim_embs, labels)
 
