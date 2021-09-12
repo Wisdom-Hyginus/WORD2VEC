@@ -220,7 +220,7 @@ with tf.compat.v1.Session(graph=graph) as session:
 # Step 6: Visualize the embeddings.
 
 
-def plot_with_labels(low_dim_embs, labels, filename='Skipgram_tsne.png'):
+def plot_with_labels(low_dim_embs, labels, filename='cbow_tsne.png'):
     assert low_dim_embs.shape[0] >= len(labels), 'More labels than embeddings'
     plt.figure(figsize=(18, 18))  # in inches
     for i, label in enumerate(labels):
